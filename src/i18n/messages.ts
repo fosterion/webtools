@@ -14,14 +14,14 @@ export const messages = {
     home: {
       badge: '100% in your browser · data never leaves',
       title: 'Web tools',
-      subtitle: 'Small everyday utilities. Fast, private, no install.',
+      subtitle: 'Small everyday utilities — fast, no install.',
       open: 'Open',
     },
     tools: {
       'base64-to-file': {
         title: 'Base64 → File',
-        description: 'Decode base64 (or a data-URI) and download it as a file. All in the browser.',
-        subtitle: 'Paste a base64 string or data-URI — decoding happens locally in your browser.',
+        description: 'Decode base64 or a data-URI and download it as a file.',
+        subtitle: 'Paste a base64 string or data-URI below.',
         inputLabel: 'Base64 / data-URI',
         filenameLabel: 'File name',
         mime: 'MIME',
@@ -36,8 +36,8 @@ export const messages = {
       },
       'uuid-generator': {
         title: 'UUID / GUID Generator',
-        description: 'Generate UUIDs of different versions (v4, v7, v1). All in the browser.',
-        subtitle: 'Pick a version, generate one or many, and copy. Everything runs locally.',
+        description: 'Generate UUIDs of different versions (v4, v7, v1).',
+        subtitle: 'Pick a version and generate one or many.',
         version: 'Version',
         count: 'Count',
         uppercase: 'Uppercase',
@@ -64,14 +64,14 @@ export const messages = {
     home: {
       badge: '100% в браузере · данные никуда не уходят',
       title: 'Инструменты для веба',
-      subtitle: 'Небольшие утилиты на каждый день. Быстро, приватно, без установки.',
+      subtitle: 'Небольшие утилиты на каждый день — быстро, без установки.',
       open: 'Открыть',
     },
     tools: {
       'base64-to-file': {
         title: 'Base64 → File',
-        description: 'Декодировать base64 (или data-URI) и скачать как файл. Всё в браузере.',
-        subtitle: 'Вставьте base64-строку или data-URI — конвертация локально в браузере.',
+        description: 'Декодировать base64 или data-URI и скачать как файл.',
+        subtitle: 'Вставьте base64-строку или data-URI ниже.',
         inputLabel: 'Base64 / data-URI',
         filenameLabel: 'Имя файла',
         mime: 'MIME',
@@ -86,8 +86,8 @@ export const messages = {
       },
       'uuid-generator': {
         title: 'Генератор UUID / GUID',
-        description: 'Генерация UUID разных версий (v4, v7, v1). Всё в браузере.',
-        subtitle: 'Выберите версию, сгенерируйте один или несколько и скопируйте. Всё локально.',
+        description: 'Генерация UUID разных версий (v4, v7, v1).',
+        subtitle: 'Выберите версию и сгенерируйте один или несколько.',
         version: 'Версия',
         count: 'Количество',
         uppercase: 'Верхний регистр',
