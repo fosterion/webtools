@@ -1,9 +1,12 @@
 <script setup lang="ts">
 import { RouterLink, RouterView } from 'vue-router'
 import { useTheme } from './composables/useTheme'
+import { useI18n } from './composables/useI18n'
+import { locales } from './i18n/messages'
 import Logo from './components/Logo.vue'
 
 const { theme, toggle } = useTheme()
+const { locale, setLocale, t } = useI18n()
 </script>
 
 <template>
@@ -30,9 +33,28 @@ const { theme, toggle } = useTheme()
         </RouterLink>
 
         <div class="flex items-center gap-1">
+          <div
+            class="mr-1 flex items-center rounded-lg border border-slate-200 p-0.5 text-xs font-semibold dark:border-slate-800"
+          >
+            <button
+              v-for="loc in locales"
+              :key="loc"
+              type="button"
+              class="rounded-md px-2 py-1 uppercase transition"
+              :class="
+                locale === loc
+                  ? 'bg-slate-900 text-white dark:bg-slate-100 dark:text-slate-900'
+                  : 'text-slate-500 hover:text-slate-800 dark:text-slate-400 dark:hover:text-slate-100'
+              "
+              @click="setLocale(loc)"
+            >
+              {{ loc }}
+            </button>
+          </div>
+
           <button
             type="button"
-            :title="theme === 'dark' ? 'Светлая тема' : 'Тёмная тема'"
+            :title="theme === 'dark' ? t('nav.toLight') : t('nav.toDark')"
             class="grid h-9 w-9 place-items-center rounded-lg text-slate-600 transition hover:bg-slate-200/70 dark:text-slate-300 dark:hover:bg-slate-800/70"
             @click="toggle"
           >

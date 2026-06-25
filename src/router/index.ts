@@ -8,7 +8,6 @@ const routes: RouteRecordRaw[] = [
     path: `/${tool.id}`,
     name: tool.id,
     component: tool.component,
-    meta: { title: tool.title },
   })),
   { path: '/:pathMatch(.*)*', redirect: '/' },
 ]

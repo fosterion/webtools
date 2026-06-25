@@ -1,6 +1,9 @@
 <script setup lang="ts">
 import { RouterLink } from 'vue-router'
 import { tools } from '../tools/registry'
+import { useI18n } from '../composables/useI18n'
+
+const { t } = useI18n()
 </script>
 
 <template>
@@ -10,15 +13,15 @@ import { tools } from '../tools/registry'
         class="inline-flex items-center gap-1.5 rounded-full border border-slate-200 bg-white/60 px-3 py-1 text-xs font-medium text-slate-600 shadow-sm dark:border-slate-800 dark:bg-slate-900/60 dark:text-slate-400"
       >
         <span class="h-1.5 w-1.5 rounded-full bg-emerald-500" />
-        100% в браузере · данные никуда не уходят
+        {{ t('home.badge') }}
       </span>
       <h1
         class="mt-4 bg-gradient-to-r from-slate-900 via-brand-700 to-fuchsia-700 bg-clip-text text-4xl font-extrabold tracking-tight text-transparent sm:text-5xl dark:from-white dark:via-brand-300 dark:to-fuchsia-300"
       >
-        Инструменты для веба
+        {{ t('home.title') }}
       </h1>
       <p class="mx-auto mt-3 max-w-xl text-slate-600 dark:text-slate-400">
-        Небольшие утилиты на каждый день. Быстро, приватно, без установки.
+        {{ t('home.subtitle') }}
       </p>
     </section>
 
@@ -38,16 +41,16 @@ import { tools } from '../tools/registry'
               {{ tool.icon }}
             </span>
             <div>
-              <h2 class="font-semibold">{{ tool.title }}</h2>
+              <h2 class="font-semibold">{{ t(`tools.${tool.id}.title`) }}</h2>
               <p class="mt-1 text-sm text-slate-600 dark:text-slate-400">
-                {{ tool.description }}
+                {{ t(`tools.${tool.id}.description`) }}
               </p>
             </div>
           </div>
           <span
             class="mt-4 inline-flex items-center gap-1 text-sm font-medium text-brand-600 dark:text-brand-400"
           >
-            Открыть
+            {{ t('home.open') }}
             <span class="transition group-hover:translate-x-0.5">→</span>
           </span>
         </RouterLink>

@@ -1,38 +1,42 @@
 # WebTools
 
-Набор веб-утилит, работающих **полностью в браузере** — без серверной части.
-Данные не покидают устройство пользователя.
+**English** · [Русский](README.ru.md)
 
-Живая версия: https://fosterion.github.io/webtools/
+A collection of web utilities that run **entirely in the browser** — no backend.
+Your data never leaves your device.
 
-## Стек
+Live: https://fosterion.github.io/webtools/
+
+## Stack
 
 - [Vue 3](https://vuejs.org/) + TypeScript (`<script setup>`)
 - [Vite](https://vite.dev/)
 - [Vue Router](https://router.vuejs.org/)
 - [Tailwind CSS](https://tailwindcss.com/)
+- Lightweight, dependency-free i18n (EN / RU) and light/dark themes
 
-## Инструменты
+## Tools
 
-- **Base64 → File** — декодирует base64 / data-URI и сохраняет как файл.
+- **Base64 → File** — decodes base64 / data-URI and saves it as a file.
 
-## Разработка
+## Development
 
 ```bash
 npm install
-npm run dev      # локальный сервер разработки
-npm run build    # сборка в dist/
-npm run preview  # предпросмотр собранной версии
+npm run dev      # local dev server
+npm run build    # build to dist/
+npm run preview  # preview the production build
 ```
 
-## Добавить новый инструмент
+## Adding a new tool
 
-1. Создайте компонент в `src/tools/MyTool.vue`.
-2. Добавьте запись в `src/tools/registry.ts` — роут и карточка на главной
-   создаются автоматически.
+1. Create a component in `src/tools/MyTool.vue`.
+2. Add an entry to `src/tools/registry.ts` — the route and the home-page card
+   are generated automatically.
+3. Add its strings under `tools.<id>` in `src/i18n/messages.ts` for each locale.
 
-## Деплой
+## Deployment
 
-Пуш в `main` автоматически собирает и публикует сайт на GitHub Pages через
-GitHub Actions (`.github/workflows/deploy.yml`). В настройках репозитория
-включите **Settings → Pages → Source: GitHub Actions**.
+Pushing to `main` builds and publishes the site to GitHub Pages via GitHub
+Actions (`.github/workflows/deploy.yml`). In the repository settings enable
+**Settings → Pages → Source: GitHub Actions**.

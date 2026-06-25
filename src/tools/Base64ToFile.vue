@@ -1,6 +1,10 @@
 <script setup lang="ts">
 import { computed, ref, watch } from 'vue'
 import { RouterLink } from 'vue-router'
+import { useI18n } from '../composables/useI18n'
+
+const { t } = useI18n()
+const tk = (key: string) => t(`tools.base64-to-file.${key}`)
 
 const input = ref('')
 const filename = ref('download')
@@ -37,23 +41,23 @@ function parse(raw: string): Parsed {
     if (match[1]) mime = match[1]
     if (!match[2]) {
       // data-URI without ;base64 is URL-encoded, not base64.
-      throw new Error('Это data-URI без base64 (URL-encoded). Поддерживается только base64.')
+      throw new Error('errors.notBase64')
     }
     data = match[3]
   }
 
   // Drop any whitespace/newlines that often sneak into pasted base64.
   data = data.replace(/\s+/g, '')
-  if (data === '') throw new Error('Пустой ввод.')
+  if (data === '') throw new Error('errors.empty')
   if (!/^[A-Za-z0-9+/]*={0,2}$/.test(data)) {
-    throw new Error('Недопустимые символы для base64.')
+    throw new Error('errors.invalidChars')
   }
 
   let binary: string
   try {
     binary = atob(data)
   } catch {
-    throw new Error('Не удалось декодировать base64 (неверная длина или символы).')
+    throw new Error('errors.decodeFailed')
   }
 
   const bytes = new Uint8Array(binary.length)
@@ -68,7 +72,7 @@ const parsed = computed<Parsed | null>(() => {
   try {
     return parse(input.value)
   } catch (e) {
-    error.value = e instanceof Error ? e.message : String(e)
+    error.value = e instanceof Error ? tk(e.message) : String(e)
     return null
   }
 })
@@ -123,7 +127,7 @@ function download() {
       to="/"
       class="inline-flex items-center gap-1 text-sm text-slate-500 transition hover:text-slate-700 dark:text-slate-400 dark:hover:text-slate-200"
     >
-      <span>←</span> Инструменты
+      <span>←</span> {{ t('nav.tools') }}
     </RouterLink>
 
     <div class="mt-3 flex items-center gap-3">
@@ -133,9 +137,9 @@ function download() {
         📦
       </span>
       <div>
-        <h1 class="text-2xl font-bold tracking-tight">Base64 → File</h1>
+        <h1 class="text-2xl font-bold tracking-tight">{{ tk('title') }}</h1>
         <p class="text-sm text-slate-600 dark:text-slate-400">
-          Вставьте base64-строку или data-URI — конвертация локально в браузере.
+          {{ tk('subtitle') }}
         </p>
       </div>
     </div>
@@ -143,12 +147,12 @@ function download() {
     <div
       class="mt-6 rounded-2xl border border-slate-200 bg-white/70 p-5 shadow-sm backdrop-blur dark:border-slate-800 dark:bg-slate-900/60"
     >
-      <label class="block text-sm font-medium">Base64 / data-URI</label>
+      <label class="block text-sm font-medium">{{ tk('inputLabel') }}</label>
       <textarea
         v-model="input"
         rows="8"
         spellcheck="false"
-        placeholder="iVBORw0KGgo... или data:image/png;base64,iVBORw0KGgo..."
+        placeholder="iVBORw0KGgo...  ·  data:image/png;base64,iVBORw0KGgo..."
         class="mt-1.5 w-full resize-y rounded-xl border border-slate-300 bg-white p-3 font-mono text-sm text-slate-900 outline-none transition focus:border-brand-500 focus:ring-2 focus:ring-brand-500/20 dark:border-slate-700 dark:bg-slate-950 dark:text-slate-100"
       />
 
@@ -161,7 +165,7 @@ function download() {
 
       <div v-if="parsed" class="mt-4 grid gap-4 sm:grid-cols-2">
         <div>
-          <label class="block text-sm font-medium">Имя файла</label>
+          <label class="block text-sm font-medium">{{ tk('filenameLabel') }}</label>
           <input
             v-model="filename"
             class="mt-1.5 w-full rounded-xl border border-slate-300 bg-white p-2.5 text-sm text-slate-900 outline-none transition focus:border-brand-500 focus:ring-2 focus:ring-brand-500/20 dark:border-slate-700 dark:bg-slate-950 dark:text-slate-100"
@@ -171,11 +175,11 @@ function download() {
           <div
             class="flex justify-between border-b border-slate-200 py-1.5 dark:border-slate-800"
           >
-            <dt>MIME</dt>
+            <dt>{{ tk('mime') }}</dt>
             <dd class="font-mono text-slate-900 dark:text-slate-200">{{ parsed.mime }}</dd>
           </div>
           <div class="flex justify-between py-1.5">
-            <dt>Размер</dt>
+            <dt>{{ tk('size') }}</dt>
             <dd class="font-mono text-slate-900 dark:text-slate-200">{{ sizeLabel }}</dd>
           </div>
         </dl>
@@ -193,7 +197,7 @@ function download() {
         class="mt-5 inline-flex items-center gap-2 rounded-xl bg-gradient-to-r from-brand-600 to-fuchsia-600 px-5 py-2.5 font-medium text-white shadow-sm transition hover:from-brand-500 hover:to-fuchsia-500 hover:shadow-md disabled:cursor-not-allowed disabled:opacity-40 disabled:hover:shadow-sm"
         @click="download"
       >
-        <span>⬇</span> Скачать файл
+        <span>⬇</span> {{ tk('download') }}
       </button>
     </div>
   </div>
