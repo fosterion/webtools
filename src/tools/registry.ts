@@ -18,4 +18,9 @@ export const tools: Tool[] = [
     icon: '📦',
     component: () => import('./Base64ToFile.vue'),
   },
+  {
+    id: 'uuid-generator',
+    icon: '🆔',
+    component: () => import('./UuidGenerator.vue'),
+  },
 ]
