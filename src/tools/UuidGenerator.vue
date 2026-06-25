@@ -122,14 +122,14 @@ onMounted(generate)
     </div>
 
     <div
-      class="mt-6 rounded-2xl border border-slate-200 bg-white/70 p-5 shadow-sm backdrop-blur dark:border-slate-800 dark:bg-slate-900/60"
+      class="mt-6 rounded-2xl border border-slate-200 bg-white/70 p-5 shadow-sm backdrop-blur dark:border-slate-700 dark:bg-slate-800/60"
     >
       <div class="grid gap-4 sm:grid-cols-2">
         <div>
           <label class="block text-sm font-medium">{{ tk('version') }}</label>
           <select
             v-model="version"
-            class="mt-1.5 w-full rounded-xl border border-slate-300 bg-white p-2.5 text-sm text-slate-900 outline-none transition focus:border-brand-500 focus:ring-2 focus:ring-brand-500/20 dark:border-slate-700 dark:bg-slate-950 dark:text-slate-100"
+            class="mt-1.5 w-full rounded-xl border border-slate-300 bg-white p-2.5 text-sm text-slate-900 outline-none transition focus:border-brand-500 focus:ring-2 focus:ring-brand-500/20 dark:border-slate-700 dark:bg-slate-900 dark:text-slate-100"
           >
             <option v-for="v in versionKeys" :key="v" :value="v">
               {{ tk(`versions.${v}`) }}
@@ -143,7 +143,7 @@ onMounted(generate)
             type="number"
             min="1"
             max="100"
-            class="mt-1.5 w-full rounded-xl border border-slate-300 bg-white p-2.5 text-sm text-slate-900 outline-none transition focus:border-brand-500 focus:ring-2 focus:ring-brand-500/20 dark:border-slate-700 dark:bg-slate-950 dark:text-slate-100"
+            class="mt-1.5 w-full rounded-xl border border-slate-300 bg-white p-2.5 text-sm text-slate-900 outline-none transition focus:border-brand-500 focus:ring-2 focus:ring-brand-500/20 dark:border-slate-700 dark:bg-slate-900 dark:text-slate-100"
           />
         </div>
       </div>
@@ -168,7 +168,7 @@ onMounted(generate)
         </button>
         <button
           v-if="results.length > 1"
-          class="inline-flex items-center gap-2 rounded-xl border border-slate-300 px-5 py-2.5 font-medium text-slate-700 transition hover:bg-slate-100 dark:border-slate-700 dark:text-slate-200 dark:hover:bg-slate-800"
+          class="inline-flex items-center gap-2 rounded-xl border border-slate-300 px-5 py-2.5 font-medium text-slate-700 transition hover:bg-slate-100 dark:border-slate-600 dark:text-slate-200 dark:hover:bg-slate-700"
           @click="copy(results.join('\n'), 'all')"
         >
           {{ copied === 'all' ? tk('copied') : tk('copyAll') }}
@@ -179,7 +179,7 @@ onMounted(generate)
         <li
           v-for="(id, i) in results"
           :key="i"
-          class="flex items-center justify-between gap-3 rounded-xl border border-slate-200 bg-white px-3 py-2 dark:border-slate-800 dark:bg-slate-950"
+          class="flex items-center justify-between gap-3 rounded-xl border border-slate-200 bg-white px-3 py-2 dark:border-slate-700 dark:bg-slate-900"
         >
           <code class="truncate font-mono text-sm text-slate-900 dark:text-slate-100">{{ id }}</code>
           <button

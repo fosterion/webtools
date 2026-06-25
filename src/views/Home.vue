@@ -10,7 +10,7 @@ const { t } = useI18n()
   <div>
     <section class="text-center">
       <span
-        class="inline-flex items-center gap-1.5 rounded-full border border-slate-200 bg-white/60 px-3 py-1 text-xs font-medium text-slate-600 shadow-sm dark:border-slate-800 dark:bg-slate-900/60 dark:text-slate-400"
+        class="inline-flex items-center gap-1.5 rounded-full border border-slate-200 bg-white/60 px-3 py-1 text-xs font-medium text-slate-600 shadow-sm dark:border-slate-700 dark:bg-slate-800/60 dark:text-slate-400"
       >
         <span class="h-1.5 w-1.5 rounded-full bg-emerald-500" />
         {{ t('home.badge') }}
@@ -29,7 +29,7 @@ const { t } = useI18n()
       <li v-for="tool in tools" :key="tool.id">
         <RouterLink
           :to="`/${tool.id}`"
-          class="group relative block h-full overflow-hidden rounded-2xl border border-slate-200 bg-white/70 p-5 shadow-sm backdrop-blur transition duration-200 hover:-translate-y-0.5 hover:border-brand-400/60 hover:shadow-lg dark:border-slate-800 dark:bg-slate-900/60 dark:hover:border-brand-500/60"
+          class="group relative block h-full overflow-hidden rounded-2xl border border-slate-200 bg-white/70 p-5 shadow-sm backdrop-blur transition duration-200 hover:-translate-y-0.5 hover:border-brand-400/60 hover:shadow-lg dark:border-slate-700 dark:bg-slate-800/60 dark:hover:border-brand-500/60"
         >
           <div
             class="absolute inset-x-0 -top-px h-px bg-gradient-to-r from-transparent via-brand-500/60 to-transparent opacity-0 transition group-hover:opacity-100"

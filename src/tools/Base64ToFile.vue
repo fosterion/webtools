@@ -145,7 +145,7 @@ function download() {
     </div>
 
     <div
-      class="mt-6 rounded-2xl border border-slate-200 bg-white/70 p-5 shadow-sm backdrop-blur dark:border-slate-800 dark:bg-slate-900/60"
+      class="mt-6 rounded-2xl border border-slate-200 bg-white/70 p-5 shadow-sm backdrop-blur dark:border-slate-700 dark:bg-slate-800/60"
     >
       <label class="block text-sm font-medium">{{ tk('inputLabel') }}</label>
       <textarea
@@ -153,7 +153,7 @@ function download() {
         rows="8"
         spellcheck="false"
         placeholder="iVBORw0KGgo...  ·  data:image/png;base64,iVBORw0KGgo..."
-        class="mt-1.5 w-full resize-y rounded-xl border border-slate-300 bg-white p-3 font-mono text-sm text-slate-900 outline-none transition focus:border-brand-500 focus:ring-2 focus:ring-brand-500/20 dark:border-slate-700 dark:bg-slate-950 dark:text-slate-100"
+        class="mt-1.5 w-full resize-y rounded-xl border border-slate-300 bg-white p-3 font-mono text-sm text-slate-900 outline-none transition focus:border-brand-500 focus:ring-2 focus:ring-brand-500/20 dark:border-slate-700 dark:bg-slate-900 dark:text-slate-100"
       />
 
       <p
@@ -168,12 +168,12 @@ function download() {
           <label class="block text-sm font-medium">{{ tk('filenameLabel') }}</label>
           <input
             v-model="filename"
-            class="mt-1.5 w-full rounded-xl border border-slate-300 bg-white p-2.5 text-sm text-slate-900 outline-none transition focus:border-brand-500 focus:ring-2 focus:ring-brand-500/20 dark:border-slate-700 dark:bg-slate-950 dark:text-slate-100"
+            class="mt-1.5 w-full rounded-xl border border-slate-300 bg-white p-2.5 text-sm text-slate-900 outline-none transition focus:border-brand-500 focus:ring-2 focus:ring-brand-500/20 dark:border-slate-700 dark:bg-slate-900 dark:text-slate-100"
           />
         </div>
         <dl class="self-end text-sm text-slate-600 dark:text-slate-400">
           <div
-            class="flex justify-between border-b border-slate-200 py-1.5 dark:border-slate-800"
+            class="flex justify-between border-b border-slate-200 py-1.5 dark:border-slate-700"
           >
             <dt>{{ tk('mime') }}</dt>
             <dd class="font-mono text-slate-900 dark:text-slate-200">{{ parsed.mime }}</dd>
@@ -189,7 +189,7 @@ function download() {
         v-if="previewUrl"
         :src="previewUrl"
         alt="preview"
-        class="mt-4 max-h-64 rounded-xl border border-slate-200 dark:border-slate-800"
+        class="mt-4 max-h-64 rounded-xl border border-slate-200 dark:border-slate-700"
       />
 
       <button

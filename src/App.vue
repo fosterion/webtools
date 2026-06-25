@@ -11,7 +11,7 @@ const { locale, setLocale, t } = useI18n()
 
 <template>
   <div
-    class="min-h-screen bg-slate-50 text-slate-900 transition-colors dark:bg-slate-950 dark:text-slate-100"
+    class="min-h-screen bg-slate-100 text-slate-900 transition-colors dark:bg-slate-900 dark:text-slate-100"
   >
     <!-- Ambient gradient glow -->
     <div class="pointer-events-none fixed inset-0 -z-10 overflow-hidden">
@@ -21,7 +21,7 @@ const { locale, setLocale, t } = useI18n()
     </div>
 
     <header
-      class="sticky top-0 z-10 border-b border-slate-200/70 bg-white/70 backdrop-blur-md dark:border-slate-800/70 dark:bg-slate-950/60"
+      class="sticky top-0 z-10 border-b border-slate-200/70 bg-white/70 backdrop-blur-md dark:border-slate-700/70 dark:bg-slate-900/70"
     >
       <div class="mx-auto flex max-w-4xl items-center justify-between px-4 py-3.5">
         <RouterLink
@@ -34,7 +34,7 @@ const { locale, setLocale, t } = useI18n()
 
         <div class="flex items-center gap-1">
           <div
-            class="mr-1 flex items-center rounded-lg border border-slate-200 p-0.5 text-xs font-semibold dark:border-slate-800"
+            class="mr-1 flex items-center rounded-lg border border-slate-200 p-0.5 text-xs font-semibold dark:border-slate-700"
           >
             <button
               v-for="loc in locales"
